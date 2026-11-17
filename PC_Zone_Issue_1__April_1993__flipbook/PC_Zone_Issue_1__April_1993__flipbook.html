@@ -34,6 +34,55 @@
     <title>PC_Zone_Issue_1__April_1993_ - FlipBook</title>
     <script type="text/javascript" src="https://raw.githubusercontent.com/igiteam/pdftoflipbook/refs/heads/main/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="https://raw.githubusercontent.com/igiteam/pdftoflipbook/refs/heads/main/magazine_turn.js"></script>
+    <script>
+    (function () {
+      var host = location.hostname || '';
+      var onGitHub = /(^|\.)githubusercontent\.com$/i.test(host)
+                  || /(^|\.)github\.io$/i.test(host)
+                  || /(^|\.)github\.com$/i.test(host);
+    
+      var JQ = {
+        jsdelivr: 'https://cdn.jsdelivr.net/gh/igiteam/pdftoflipbook@main/jquery-1.12.4.min.js',
+        raw:      'https://raw.githubusercontent.com/igiteam/pdftoflipbook/refs/heads/main/jquery-1.12.4.min.js'
+      };
+      var TURN = {
+        jsdelivr: 'https://cdn.jsdelivr.net/gh/igiteam/pdftoflipbook@main/magazine_turn.js',
+        raw:      'https://raw.githubusercontent.com/igiteam/pdftoflipbook/refs/heads/main/magazine_turn.js'
+      };
+    
+      var order = onGitHub ? ['raw', 'jsdelivr'] : ['jsdelivr', 'raw'];
+    
+      function write(src) {
+        document.write('<script type="text/javascript" src="' + src + '"><\/script>');
+      }
+    
+      function isUsable(url) {
+        try {
+          var x = new XMLHttpRequest();
+          x.open('HEAD', url, false);
+          x.send(null);
+          if (x.status < 200 || x.status >= 400) return false;
+          var ct = (x.getResponseHeader('Content-Type') || '').toLowerCase();
+          // raw GitHub serves .js as text/plain -> browser won't execute it
+          if (ct.indexOf('text/plain') === 0) return false;
+          return true;
+        } catch (e) {
+          // sync XHR to cross-origin can throw in some sandboxes; assume ok, let <script> onerror handle it
+          return true;
+        }
+      }
+    
+      function pick(pair) {
+        for (var i = 0; i < order.length; i++) {
+          if (isUsable(pair[order[i]])) return pair[order[i]];
+        }
+        return pair[order[order.length - 1]];
+      }
+    
+      write(pick(JQ));
+      write(pick(TURN));
+    })();
+    </script>
     <style>
         * {
             margin: 0;
