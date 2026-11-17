@@ -32,13 +32,20 @@
     <meta property="og:locale" content="en_US">
     
     <title>PC_Zone_Issue_225__November_2010_ - FlipBook</title>
-
-    <!-- Load jQuery first -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    
-    <!-- Load Turn.js after jQuery -->
+    <!--
+      HTML Preview only fetches external scripts from raw.githubusercontent.com
+      and Bitbucket. Keep jQuery on raw GitHub so HTML Preview does not skip it.
+      It processes scripts in document order: jQuery first, then Turn.js.
+    -->
+    <script src="https://raw.githubusercontent.com/jquery/jquery/1.12.4/dist/jquery.min.js"></script>
     <script src="https://raw.githubusercontent.com/igiteam/pdftoflipbook/refs/heads/main/magazine_turn.js"></script>
-
+    <script>
+        if (!window.jQuery) {
+            console.error('Flipbook startup stopped: jQuery did not load. Check your network, CDN access, or content-security policy.');
+        } else {
+            console.log('jQuery loaded successfully:', window.jQuery.fn.jquery);
+        }
+    </script>
     <style>
         * {
             margin: 0;
