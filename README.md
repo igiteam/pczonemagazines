@@ -1,5 +1,7 @@
 # pczonemagazines
 
+made with [https://github.com/igiteam/pdftoflipbook](https://github.com/igiteam/pdftoflipbook)
+
 | Cover | Issue | Pages |
 |-------|-------|-------|
 | [![PC Zone Issue 100 (March 2001).pdf](https://raw.githubusercontent.com/igiteam/pczonemagazines/refs/heads/main/PC_Zone_Issue_100__March_2001__flipbook/PC_Zone_Issue_100__March_2001__page_1.png)](https://html.macosxjs.com/?https://raw.githubusercontent.com/igiteam/pczonemagazines/refs/heads/main/PC_Zone_Issue_100__March_2001__flipbook/PC_Zone_Issue_100__March_2001__flipbook.html) | [PC Zone Issue 100 (March 2001).pdf](https://html.macosxjs.com/?https://raw.githubusercontent.com/igiteam/pczonemagazines/refs/heads/main/PC_Zone_Issue_100__March_2001__flipbook/PC_Zone_Issue_100__March_2001__flipbook.html) | 148 |
