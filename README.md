@@ -1,6 +1,7 @@
 # pczonemagazines
 
-made with [https://github.com/igiteam/pdftoflipbook](https://github.com/igiteam/pdftoflipbook)
+[https://igiteam.github.io/pczonemagazines/](https://igiteam.github.io/pczonemagazines/)
+
 
 | Cover | Issue | Pages |
 |-------|-------|-------|
@@ -229,3 +230,9 @@ made with [https://github.com/igiteam/pdftoflipbook](https://github.com/igiteam/
 | [![PC Zone Issue 98 (January 2001)](https://raw.githubusercontent.com/igiteam/pczonemagazines/refs/heads/main/PC_Zone_Issue_98__January_2001__flipbook/PC_Zone_Issue_98__January_2001__page_1.png)](https://html.macosxjs.com/?https://raw.githubusercontent.com/igiteam/pczonemagazines/refs/heads/main/PC_Zone_Issue_98__January_2001__flipbook/PC_Zone_Issue_98__January_2001__flipbook.html) | [PC Zone Issue 98 (January 2001)](https://html.macosxjs.com/?https://raw.githubusercontent.com/igiteam/pczonemagazines/refs/heads/main/PC_Zone_Issue_98__January_2001__flipbook/PC_Zone_Issue_98__January_2001__flipbook.html) | 164 |
 | [![PC Zone Issue 99 (February 2001)](https://raw.githubusercontent.com/igiteam/pczonemagazines/refs/heads/main/PC_Zone_Issue_99__February_2001__flipbook/PC_Zone_Issue_99__February_2001__page_1.png)](https://html.macosxjs.com/?https://raw.githubusercontent.com/igiteam/pczonemagazines/refs/heads/main/PC_Zone_Issue_99__February_2001__flipbook/PC_Zone_Issue_99__February_2001__flipbook.html) | [PC Zone Issue 99 (February 2001)](https://html.macosxjs.com/?https://raw.githubusercontent.com/igiteam/pczonemagazines/refs/heads/main/PC_Zone_Issue_99__February_2001__flipbook/PC_Zone_Issue_99__February_2001__flipbook.html) | 148 |
 | [![PC Zone Issue 9 (December 1993)](https://raw.githubusercontent.com/igiteam/pczonemagazines/refs/heads/main/PC_Zone_Issue_9__December_1993__flipbook/PC_Zone_Issue_9__December_1993__page_1.png)](https://html.macosxjs.com/?https://raw.githubusercontent.com/igiteam/pczonemagazines/refs/heads/main/PC_Zone_Issue_9__December_1993__flipbook/PC_Zone_Issue_9__December_1993__flipbook.html) | [PC Zone Issue 9 (December 1993)](https://html.macosxjs.com/?https://raw.githubusercontent.com/igiteam/pczonemagazines/refs/heads/main/PC_Zone_Issue_9__December_1993__flipbook/PC_Zone_Issue_9__December_1993__flipbook.html) | 140 |
+
+---
+
+Made with [https://github.com/igiteam/pdftoflipbook](https://github.com/igiteam/pdftoflipbook)
+
+---
