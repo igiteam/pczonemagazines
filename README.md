@@ -2,10 +2,6 @@
 
 [https://igiteam.github.io/pczonemagazines/](https://igiteam.github.io/pczonemagazines/)
 
-# pczonemagazines
-
-[https://igiteam.github.io/pczonemagazines/](https://igiteam.github.io/pczonemagazines/)
-
 
 | Cover | Issue | Pages |
 |-------|-------|-------|
