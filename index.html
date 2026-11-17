@@ -114,6 +114,9 @@
             mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%),
                 linear-gradient(to bottom, transparent 0%, black 3%, black 97%, transparent 100%);
             mask-composite: intersect;
+            /* NEW: default placeholder look before the real cover loads */
+            background: #2a1a10 url('https://raw.githubusercontent.com/igiteam/pdftoflipbook/refs/heads/main/123x180.png') center / contain no-repeat;
+            min-width: calc(123px * var(--zoom) / 1.55); /* roughly 123x180 aspect */
         }
 
         .mag-name {
@@ -243,6 +246,9 @@
         let itemsPerRow = 5;
 
         const jsonUrl = 'https://raw.githubusercontent.com/igiteam/pczonemagazines/refs/heads/main/magazines.json';
+
+        // NEW: placeholder used while covers load / when a cover fails
+        const PLACEHOLDER_IMG = 'https://raw.githubusercontent.com/igiteam/pdftoflipbook/refs/heads/main/123x180.png';
         
         // Shelf background images for BETWEEN magazines (horizontal gaps)
         const shelfBgImages = [
@@ -291,7 +297,7 @@
                 }
             });
             // Preload shelf images too
-            [...shelfBgImages, ...shelfImages].forEach(url => {
+            [...shelfBgImages, ...shelfImages, PLACEHOLDER_IMG].forEach(url => {
                 const img = new Image();
                 img.src = url;
             });
@@ -404,7 +410,7 @@
                     const originalTitle = mag.title || '';
 
                     // Use thumbnail_url for cover image, fallback to placeholder
-                    const thumbnailUrl = mag.cover_url || 'https://raw.githubusercontent.com/igiteam/pdftoflipbook/refs/heads/main/pczonemag.png';
+                    const thumbnailUrl = mag.cover_url || PLACEHOLDER_IMG;
 
                     // Use html_url as the link to open the flipbook
                     const pdfUrl = mag.html_url || '#';
@@ -449,10 +455,8 @@
                 // Clear loading message and render shelf items
                 shelfDiv.innerHTML = '';
 
-                const placeholderImg = 'https://raw.githubusercontent.com/igiteam/pdftoflipbook/refs/heads/main/pczonemag.png';
-
                 magazines.forEach((mag, index) => {
-                    const coverUrl = mag.imageUrl && mag.imageUrl !== '#' ? mag.imageUrl : placeholderImg;
+                    const coverUrl = mag.imageUrl && mag.imageUrl !== '#' ? mag.imageUrl : PLACEHOLDER_IMG;
                     const pdfUrl = mag.pdfUrl;
                     const displayTitle = mag.title || `Magazine ${index + 1}`;
 
@@ -462,12 +466,24 @@
                     const img = document.createElement('img');
                     img.className = 'shelf-cover';
                     img.loading = 'lazy';
-                    img.src = coverUrl;
+                    // NEW: show placeholder immediately, swap to real cover once it loads
+                    img.src = PLACEHOLDER_IMG;
+                    img.dataset.realSrc = coverUrl;
                     img.alt = displayTitle;
                     img.title = displayTitle;
 
+                    // NEW: on load / on error both end up with a valid image
+                    img.onload = () => {
+                        // If we just loaded the placeholder, kick off the real cover
+                        if (img.dataset.realSrc && img.src !== img.dataset.realSrc) {
+                            img.src = img.dataset.realSrc;
+                        }
+                    };
                     img.onerror = () => {
-                        img.src = placeholderImg;
+                        // If the real cover fails, keep the placeholder
+                        if (img.src !== PLACEHOLDER_IMG) {
+                            img.src = PLACEHOLDER_IMG;
+                        }
                     };
 
                     itemDiv.addEventListener('click', (e) => {
