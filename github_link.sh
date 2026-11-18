@@ -24,3 +24,20 @@ for file in pczone_offline_htmls/*.html; do
         echo "SKIPPED (folder not found): $filename"
     fi
 done
+
+
+cd ~/Downloads
+
+for file in pczone_github_htmls/*.html; do
+    [ -f "$file" ] || continue
+
+    filename=$(basename "$file")
+    destination="pczone_github/${filename%.html}/$filename"
+
+    if [ -d "pczone_github/${filename%.html}" ]; then
+        cp -f "$file" "$destination"
+        echo "UPDATED: $filename"
+    else
+        echo "SKIPPED (folder not found): $filename"
+    fi
+done
