@@ -2,6 +2,7 @@
 
 [https://igiteam.github.io/pczonemagazines/](https://igiteam.github.io/pczonemagazines/)
 
+[https://readme.macosxjs.com/?url=https%3A%2F%2Fgithub.com%2Figiteam%2Fpczonemagazines%2Fblob%2Fmain%2FREADME.md](https://readme.macosxjs.com/?url=https%3A%2F%2Fgithub.com%2Figiteam%2Fpczonemagazines%2Fblob%2Fmain%2FREADME.md)
 
 | Cover | Issue | Pages |
 |-------|-------|-------|
