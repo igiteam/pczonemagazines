@@ -7,3 +7,20 @@ find . -type f -iname "*.html" -exec sed -i '' \
 {} \;
 
 echo "Finished updating all HTML files!"
+
+
+cd ~/Downloads
+
+for file in pczone_offline_htmls/*.html; do
+    [ -f "$file" ] || continue
+
+    filename=$(basename "$file")
+    destination="pczone/${filename%.html}/$filename"
+
+    if [ -d "pczone/${filename%.html}" ]; then
+        cp -f "$file" "$destination"
+        echo "UPDATED: $filename"
+    else
+        echo "SKIPPED (folder not found): $filename"
+    fi
+done
